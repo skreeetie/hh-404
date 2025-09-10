@@ -6,6 +6,7 @@ import { Header } from "./modules/Header";
 import { theme } from "./theme.env";
 import "./App.scss";
 import { VacancyPage } from "./pages/VacancyPage/VacancyPage";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
         <Route path="/" element={<Header />}>
           <Route path="vacancies" element={<Vacancies />} />
           <Route path="vacancies/:id" element={<VacancyPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </MantineProvider>

@@ -13,7 +13,7 @@ export const Header = () => {
           <h3 className={style.title}>.FrontEnd</h3>
         </div>
         <div className={style.text}>
-          <a href="#" className={style.active}>
+          <a href="#/vacancies" className={style.active}>
             Вакансии FE <Ellipse width={7} height={7} />
           </a>
           <a href="#" className={style.inactive}>

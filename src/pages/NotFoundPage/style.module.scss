@@ -1,0 +1,54 @@
+.section {
+  margin: 0 auto;
+  margin-top: 72px;
+  margin-bottom: 32px;
+  padding: 32px;
+  width: 707px;
+  background-color: #fff;
+  border-radius: 12px;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    h1 {
+      margin: 0;
+    }
+    .title {
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 130%;
+      color: #0f0f10;
+    }
+    .wrapper {
+      width: 160px;
+      height: 42px;
+
+      .return {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 250%;
+        color: #fff;
+      }
+    }
+  }
+  p {
+    margin: 0;
+  }
+  .text {
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 133%;
+    color: #0f0f10;
+  }
+  .gif {
+    margin-top: 32px;
+    border-radius: 12px;
+    width: 640px;
+    height: 336px;
+    background-image: url("https://c.tenor.com/baBulgRz6XkAAAAd/tenor.gif");
+  }
+}
