@@ -9,7 +9,7 @@ interface VacancyInfo extends VacancyType {
 }
 
 export const VacancyInfo = () => {
-  const { id } = useParams();
+  const { param: id } = useParams();
   const [vacancy, setVacancy] = useState<VacancyInfo>({
     alternate_url: "",
     area: {

@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router";
 
 export const VacanciesList = () => {
   const { url } = useUrl();
-  const { area } = useParams();
+  const { param: area } = useParams();
   const navigate = useNavigate();
   const { searchParams, setSearchParams } = useSearch();
   const [searchValue, setSearchValue] = useState<string>(

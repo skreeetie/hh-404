@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 export const useAreas = () => {
-  const { area } = useParams();
+  const { param: area } = useParams();
   const [areasQuery, setAreasQuery] = useState<string>("");
   useEffect(() => {
     switch (area) {
