@@ -1,17 +1,19 @@
-import { Button, TextInput } from "@mantine/core";
+import { Button, Tabs, TextInput } from "@mantine/core";
 import Search from "../../assets/search.svg?react";
 import style from "./style.module.scss";
 import { Skills } from "../../components/Skills/Skills";
-import { Area } from "../../components/Area/Area";
 import { Vacancy } from "../../components/Vacancy/Vacancy";
 import { useState } from "react";
 import { PaginationFooter } from "../../components/PaginationFooter/PaginationFooter";
 import { useUrl } from "../../hooks/useUrl";
 import { useGetFilteredVacanciesQuery } from "../../redux/reducers/VacanciesApi/VacanciesApi";
 import { useSearch } from "../../hooks/useSearch";
+import { useNavigate, useParams } from "react-router";
 
 export const VacanciesList = () => {
   const { url } = useUrl();
+  const { area } = useParams();
+  const navigate = useNavigate();
   const { searchParams, setSearchParams } = useSearch();
   const [searchValue, setSearchValue] = useState<string>(
     searchParams.get("search") || ""
@@ -64,9 +66,26 @@ export const VacanciesList = () => {
       <div className={style.wrapper}>
         <div>
           <Skills />
-          <Area />
         </div>
         <div className={style.list}>
+          <Tabs
+            value={area || ""}
+            onChange={(value) => {
+              if (value) {
+                navigate(`/vacancies/${value}`);
+              } else {
+                navigate(`/vacancies`);
+              }
+            }}
+            allowTabDeactivation
+            classNames={{ list: style.tabs, tabLabel: style.tab }}
+            color="primary.4"
+          >
+            <Tabs.List>
+              <Tabs.Tab value="moscow">Москва</Tabs.Tab>
+              <Tabs.Tab value="petersburg">Санкт-Петербург</Tabs.Tab>
+            </Tabs.List>
+          </Tabs>
           {vacanciesList &&
             vacanciesList.items.map((item) => {
               return (

@@ -1,30 +1,22 @@
-import { useSearchParams } from "react-router";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 export const useAreas = () => {
+  const { area } = useParams();
   const [areasQuery, setAreasQuery] = useState<string>("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [areas, setAreas] = useState<string[]>([]);
   useEffect(() => {
-    setAreasQuery(() => {
-      return `${searchParams
-        .getAll("area")
-        .map((item) => {
-          switch (item) {
-            case "Москва":
-              return "&area=1";
-            case "Санкт-Петербург":
-              return "&area=2";
-            default:
-              return "";
-          }
-        })
-        .join("")}`;
-    });
-    setAreas(() => {
-      return searchParams.getAll("area");
-    });
-  }, [searchParams]);
+    switch (area) {
+      case "moscow":
+        setAreasQuery("&area=1");
+        break;
+      case "petersburg":
+        setAreasQuery("&area=2");
+        break;
+      default:
+        setAreasQuery("");
+        break;
+    }
+  }, [area]);
 
-  return { setSearchParams, areasQuery, areas };
+  return { areasQuery };
 };
